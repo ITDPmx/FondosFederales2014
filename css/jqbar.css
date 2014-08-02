@@ -1,0 +1,67 @@
+.jqbar
+{
+    position: relative;
+    top: 0px;
+}
+.jqbar.vertical
+{
+    text-align: center;
+    display: inline-block;
+}
+.jqbar.vertical span
+{
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+}
+.jqbar.vertical .bar-percent
+{
+    font-size: 11px;
+    font-weight: bold;
+    position: absolute;
+    height: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.jqbar.vertical .bar-level-wrapper
+{
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+.jqbar.vertical .bar-level
+{
+    position: absolute;
+}
+
+/*horizontal*/
+.jqbar.horizontal{
+    /*margin: 0.25em 0;*/
+}
+.jqbar.horizontal:hover
+{
+    background: #A6BBBA !important;
+    color: #333;
+    cursor: pointer;
+    -webkit-transition: all .25s ease-in;
+    -moz-transition: all .25s ease-in;
+    -ms-transition: all .25s ease-in;
+     -o-transition: all .25s ease-in;
+        transition: all .25s ease-in;
+}
+.jqbar.horizontal span
+{
+    display: table-cell;
+    font-size: 25px;
+    margin-left: 15px;
+    vertical-align: middle;
+    color:#1E3B42;
+}
+.jqbar.horizontal .bar-percent
+{
+    font-size: 18px;
+    font-weight: bold;
+    height: 20px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+}

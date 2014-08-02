@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="es" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>ITDP - Invertir para movernos</title>
+	<meta name="description" content="">
+  <meta title= "ITDP México">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="leaflet-0.7.2/leaflet.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jqbar.css" />
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="css/iosOverlay.css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+
+<div id="fb-root"></div>
+
+	<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
+		<!--<canvas id="canvas" width="400" height="400" style="z-index: 1000;background:white;width: 400px;height: 400px;position: absolute;left: 0;bottom: 0;"></canvas>-->
+	
+	<!--<div id="chartdiv" style="width:70%; height:20%;z-index: 1000;position:absolute;bottom:0;background:white;overflow:hidden;"></div>-->
+<div class="modal fade" id="inicio" tabindex="-1" role="dialog" aria-labelledby="acercaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Invertir para movernos</h4>
+      </div>
+      <div class="modal-body">
+        <p>¡Bienvenido a la plataforma de visualización de fondos y programas federales destinados a inversiones en movilidad urbana en las zonas metropolitanas de México!
+
+          <p>Al seleccionar una zona metropolitana puedes encontrar el monto y porcentaje de recursos que se están destinando para inversiones en los distintos modos de transporte.</p>
+      </div>
+		<!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="z-index:10000;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#itdp-header">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://mexico.itdp.org/" target="_blank" style="margin:15px;padding:0;"><img src="img/itdp_mx_logo.png" alt="logo ITDP México" width="100" ></a>
+		<a class="navbar-brand" href="http://www.embajadabritanica.com.mx/" target="_blank" style="margin:6px 15px;padding:0;"><img src="img/embajada_britanica.png" alt="logo Embajada Británica" width="80" ></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="itdp-header">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Metodología</a></li>
+        <li><a data-toggle="tooltip" data-placement="bottom" title="Descarga el Documento" href="#">Documento Completo</a></li>
+        <li><a data-toggle="tooltip" data-placement="bottom" title="Descarga el archivo" href="#">CSV</a></li>
+ 
+      </ul>
+		<ul class="nav navbar-nav navbar-right">
+      <li><a data-target="#acerca" data-toggle="modal" href="#acerca">Acerca de...</a></li>
+			<li><a data-toggle="tooltip" data-placement="bottom" title="ITDP en Twitter" href="https://twitter.com/ITDPmx" target="_blank" style="text-decoration:none;padding:0;margin:16px;"><i class="itdp-twitter"></i></a></li>
+			<li >
+				<a data-toggle="tooltip" data-placement="bottom" title="ITDP en Facebook" href="https://www.facebook.com/itdpmx" target="_blank" style="text-decoration:none;padding:0;margin:16px;"><i class="itdp-facebook"></i></a>
+			</li>
+			<li><a data-toggle="tooltip" data-placement="bottom" title="Proyecto" style="padding: 0;margin:14px 10px 17px;" class="navbar-brand" href="https://github.com/pokaxperia/itdp" target="_blank"><img src="img/GitHub-Mark-Light-120px-plus.png" alt="GitHub logo" width="35"></a></li>
+		</ul>
+		<div class="modal fade" id="acerca" tabindex="-1" role="dialog" aria-labelledby="acercaLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Acerca del Mapa</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>El objetivo de este sitio es contar con una herramienta que permita a los ciudadanos y ciudadanas conocer el tipo de proyectos de movilidad que se está  llevando a cabo en sus ciudades. Al seleccionar una zona metropolitana puedes encontrar el monto y porcentaje de recursos que se están destinando para inversiones en los distintos modos de transporte. Con estos datos podas saber qué tanta prioridad se le está asignando a los peatones, ciclistas, usuarios del transporte público y automovilistas.
+ 
+            <p>En las pestañas superiores del sitio podrás descargar la metodología empleada para la elaboración del proyecto, así como un documento que analiza los resultados, y la base de datos de los 13,900 proyectos utilizados para la elaboración de este estudio.</p>
+ 
+            <p>Este trabajo es realizado por ITDP México gracias al apoyo de la Embajada Británica en México.</p>
+		      </div>
+				<!-- <div class="modal-footer">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div> -->
+		    </div>
+		  </div>
+		</div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div id="map">
+		
+	</div>
+	<div class="estados" style="padding:0.5em;position:absolute;top:65px;right:25%;" >
+		<select id="estado" style="width: 60%;height: 30px;color: #fff;background: rgba(34,44,60,0.75);font-size: 18px;float: right;">
+			<option value="" selected>- Seleccione una Zona - </option>
+		</select>
+	</div>
+
+	<div id="accordion" >
+
+		<div class="titulo" >
+			<h3>Invertir para movernos</h3>
+      <p>Visualización de datos de fondos federales ejercidos en proyectos de movilidad urbana</p>
+		</div>
+		<div class="row-social-icons">
+			<hr style="width:90%;">
+			<div class="social-icons">
+				<div class="col-sm-6 col-md-6 col-lg-6" id="shareBtn">
+ 					<a href="https://twitter.com/share" id="share" class="twitter-share-button" data-lang="es" data-url="http://mexico.itdp.org/" data-counturl="http://mexico.itdp.org/" data-text="Plataforma de Visualización de Datos en Línea de Fondos Federales destinados a la Movilidad Urbana" data-via="ITDPmx">Tweet</a>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-6" >
+          <div class="fb-share-button" data-href="http://localhost/itdp/" data-type="button_count"></div>
+				<!--<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=461549437315664&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+	<script>
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+	<script src="js/vendor/leaflet.ajax.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/controller/controller.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/vendor/jqbar.js"></script>
+	<script src="js/vendor/iosOverlay.js"></script>
+	<script src="js/vendor/spin.min.js"></script>
+  <script src="js/vendor/jquery.currency.js"></script>
+</body>
+</html>

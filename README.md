@@ -1,4 +1,5 @@
-FondosFederales2014
-===================
+ITDP
+====
+Diseño y elaboración de Plataforma de Visualización de Datos en Línea de Fondos Federales destinados a la Movilidad Urbana
 
-Descripción del proyecto: Visualización de datos en línea de fondos federales destinados a la movilidad urbana en las zonas metropolitanas de México
+Versión 0.0.2
