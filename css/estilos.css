@@ -24,7 +24,45 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+*{
+font-family: 'PT Sans';
+}
+.modal-body p{
+	font-size: 16px;
+}
+#bar-6 > span.bar-label{padding: 05}
 
+#accordion{
+	height:100%;
+	box-shadow: 0 2px 5px #555;
+	-webkit-box-shadow: 0 2px 5px #555;
+}
+#accordion,.titulo{
+	background: rgba(255,255,255,0.75);
+	position: fixed;
+	right: 0px;
+	top: 65px;
+	width: 25%;
+}
+#map{ 
+	top: 0;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 100%; 
+}
+#shareBtn{
+	margin:0;
+	padding:0;
+}
+#shareBtn iframe{
+	margin:10px 0;
+	padding:0;
+}
+#itdp-header ul li a{
+	font-weight: 200;
+}
 .itdp-riding:before {
 	content: "\e600";
 	font-size: 32px;
@@ -66,29 +104,23 @@
 	     -o-transition: all .5s ease-in;
 	        transition: all .5s ease-in;
 }
-#bar-6 > span.bar-label{padding: 05}
 
-#accordion{
-	height:100%;
-	box-shadow: 0 2px 5px #555;
-	-webkit-box-shadow: 0 2px 5px #555;
+.leaflet-bottom.leaflet-left{
+	background-color: rgba(255,255,255,0.8);
+	bottom:5px;
+	padding: 0 10px;
 }
-#accordion,.titulo{
-	background: rgba(255,255,255,0.75);
-	position: fixed;
-	right: 0px;
-	top: 65px;
-	width: 25%;
+.leaflet-bottom.leaflet-left .zmHover{
+	margin:0 auto;
 }
-#map{ 
-	bottom: 0;
-	height: 90%;
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	width: 100%; 
+.leaflet-bottom.leaflet-left .zmHover h4{
+	font-weight: 600;
+	color: #424242;
 }
-
+.leaflet-bottom.leaflet-left .zmHover p{
+	font-size: 16px;
+	font-weight: 400;
+}
 .navbar-default{
 	background-color: #34495E;
 	border-radius:0;
@@ -236,9 +268,10 @@
 	text-align: center;
 }
 .titulo h3{
-	color: #0d0d0d;
+	color: #424242;
 	font-size: 1.4em;
-	font-weight: 500;
+	font-weight: 600;
+	text-align: center;
 	margin: 0.5em 0;
 }
 .titulo h4{
@@ -289,16 +322,12 @@
 	margin:10px 0;
 	padding:0;
 }
-#shareBtn{
-	margin:0;
-	padding:0;
+.leaflet-top.leaflet-left{
+	left:0 !important;
+	position: fixed !important;
+	top:64px !important;
 }
-#shareBtn iframe{
-	margin:10px 0;
-	padding:0;
-}
-.leaflet-top.leaflet-left{left:0 !important;top:64px !important;position: fixed !important;}
-#itdp-header ul li a{letter-spacing: 1px;font-weight: 200;}
+
 @media only screen and (max-width: 640px){
 	.info{
 		height: 20vh;
