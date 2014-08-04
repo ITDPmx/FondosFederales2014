@@ -123,7 +123,7 @@ function styleStates(feature) {
 
 function styleZM(feature) {
 	return {
-		color:'#222C3C',
+		color:'#000',
 		dashArray: 1,
 		fillColor: '#19BC9C',
 		fillOpacity: 0.5,
@@ -137,10 +137,11 @@ function highlightFeatureZM(e) {
 	zmHover.update(layer);	
 	layer.setStyle({
 		color:'#000',
+		dashArray: 2,
 		fillColor: '#000',
 		fillOpacity: 0.5,
 		opacity:0.5,
-		weight: 1
+		weight: 2
 	});
 	if (!L.Browser.ie && !L.Browser.opera) {
 		layer.bringToFront();
