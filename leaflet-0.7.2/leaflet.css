@@ -122,12 +122,13 @@
 	margin-left: 10px;
 	}
 .leaflet-right .leaflet-control {
-	width: 25%;
-	margin-top: 155px;
-	text-align: center;
 	color: #C2C2C2;
-	position: fixed;
+	margin-top: 0;
+	position: inherit;
 	right: 0;
+	text-align: center;
+	top: 159px;
+	width: 25%;
 	}
 .leaflet-right .leaflet-control h3{
 	background-color: #222C39;
