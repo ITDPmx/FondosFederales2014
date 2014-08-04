@@ -1,25 +1,19 @@
-var legend, url, states,datos, zone, form, zonasMet, post;
+var legend, url, urlStates, states,datos, zone, form, zonasMet, post, updateInfo;
 var info = L.control();
 var zmHover = L.control();
 $(window).on('load', function() {
 	$('#inicio').modal().css('z-index', '100000');
 	loadMapSelect();
 });
+(function(){
+	$('#acerca').modal();
+});    
+var map = L.map('map',{doubleClickZoom: true}).setView([24.325523, -102.162815],5);
+var mapBox = L.tileLayer('https://{s}.tiles.mapbox.com/v3/itdpmexico.ig2j36lg/{z}/{x}/{y}.png', {
+	attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+		}).addTo(map);
 
-	var map = L.map('map',{doubleClickZoom: true}).setView([24.325523, -102.162815],5);
-	var mapBox = L.tileLayer('https://{s}.tiles.mapbox.com/v3/itdpmexico.ig2j36lg/{z}/{x}/{y}.png', {
-		attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
-			}).addTo(map);
-	form = L.DomUtil.get('estado'); 
-
-	map.on('moveend', function (){
-		if (map.getZoom() >= 8 && map.hasLayer(zonasMet)==false) {
-					url = 'js/model/zm.geojson';
-		zonasMet = new L.GeoJSON.AJAX(url,{style:styleZM,onEachFeature:onEachFeatureZM});
-			zonasMet.addTo(map);
-		}
-	});
-
+form = L.DomUtil.get('estado'); 
 
 function loadMapSelect(){
 	$.ajax({
@@ -69,9 +63,15 @@ function loadMapSelect(){
 		dataType: 'json'
 	})
 	.done(function(data, status, jqXHR) {
-		url = 'js/model/estados.geojson';
-		states = new L.GeoJSON.AJAX(url,{style:styleStates});
+
+		url = 'js/model/zm.geojson';
+		zonasMet = new L.GeoJSON.AJAX(url,{style:styleZM,onEachFeature:onEachFeatureZM});
+		zonasMet.addTo(map);
+
+		urlStates = 'js/model/estados.geojson';
+		states = new L.GeoJSON.AJAX(urlStates,{style:styleStates});
 		states.addTo(map);
+
 		datos = data.features;
 		// Añadir Zonas Metropolitanas a un select
 		$.each(datos, function(index, val) {
@@ -98,29 +98,37 @@ function loadMapSelect(){
 function selectZM(valor){
 	L.DomEvent.addListener(form, 'change', function (e) {
 		L.DomEvent.stopPropagation(e);
+		var igual = $('#estado  option:selected').text();
 		zone = this.value.split(',');
 		map.setView(zone,10);
+		$(valor).each(function(index, props) {
+			if (igual === props.zm) {
+				info.update(props);
+				prueba(props.properties.informacion);
+			}
+		});
 	});
 }
 
 function styleStates(feature) {
 	return {
-		weight: 2,
-		opacity: 0.5,
+		clickable:false,
 		color: '#444',
 		dashArray: '4',
-		fillOpacity: 0
+		fillOpacity: 0,
+		opacity: 0.5,
+		weight: 2
 	};
 }
 
 function styleZM(feature) {
 	return {
-		fillColor: '#19BC9C',
-		weight: 2,
-		opacity: 0,
 		color:'#222C3C',
 		dashArray: 1,
-		fillOpacity: 0.5
+		fillColor: '#19BC9C',
+		fillOpacity: 0.5,
+		opacity: 0,
+		weight: 2
 	};
 }
 
@@ -128,11 +136,11 @@ function highlightFeatureZM(e) {
 	var layer = e.target;
 	zmHover.update(layer);	
 	layer.setStyle({
-		fillColor: '#000',
-		weight: 1,
-		opacity:0.5,
 		color:'#000',
-		fillOpacity: 0.5
+		fillColor: '#000',
+		fillOpacity: 0.5,
+		opacity:0.5,
+		weight: 1
 	});
 	if (!L.Browser.ie && !L.Browser.opera) {
 		layer.bringToFront();
@@ -142,6 +150,7 @@ function highlightFeatureZM(e) {
 function zoomToFeatureZM(e) {
 	map.fitBounds(e.target.getBounds());
 	info.update(e.target.feature);
+	updateInfo = e.target.feature;
 	prueba(e.target.feature.properties.informacion);
 	$('#shareBtn iframe').remove();
 	var tweetBtn = $('<a>Tweet</a>')
@@ -169,7 +178,6 @@ function onEachFeatureZM(feature, layer) {
 	});
 	if (feature.zm) {
 		layer.bindPopup(feature.zm);
-		//layer.bindPopup(feature.zm,{offset:new L.Point(0,-6)});
 	}
 }
 
@@ -257,9 +265,12 @@ info.update = function (props) {
 info.addTo(map);
 
 function prueba(e){
-	$('#inversion2011').currency({region: 'MXN'});
-	$('#inversion2012').currency({region: 'MXN'});
-	$('#inversion2013').currency({region: 'MXN'});
+	var año2011 = $('#inversion2011').text();
+	var año2012 = $('#inversion2012').text();
+	var año2013 = $('#inversion2013').text();
+	$('#inversion2011').text(numeral(año2011).format('$0,0.00'));
+	$('#inversion2012').text(numeral(año2012).format('$0,0.00'));
+	$('#inversion2013').text(numeral(año2013).format('$0,0.00'));
 	$('#bar-1').jqbar({label: '<span class="itdp-riding"></span>',value: e.Ciclopista2011, barColor: '#1E3B42',barWidth:20});
 	$('#bar-2').jqbar({label: '<span class="itdp-person16"></span>',value: e.InfPeaton2011, barColor: '#1E3B42',barWidth:20});
 	$('#bar-3').jqbar({label: '<span class="itdp-tree7"></span>',value: e.EPublico2011, barColor: '#1E3B42',barWidth:20});
@@ -329,7 +340,6 @@ $('body').on('click','.horizontal',function(e){
 		$('#shareBtn').append(tweetBtn);
 		twttr.widgets.load();
 
-
 	legendInfo(tituloLeyenda);
 	$('.muActive').removeClass('muActive');
 	$(this).addClass('muActive');
@@ -345,11 +355,11 @@ $('body').on('click','.horizontal',function(e){
 		var primero = feature.properties.informacion;
 		var segundo = primero[age];
 		return {
+			color:'black',
 			fillColor: getColorIV(segundo),
 			fillOpacity: 0.75,
 			opacity: 1,
-			weight: 1,
-			color:'black'
+			weight: 1
 		};
 	}
 	function getColorIV(iv) {
@@ -366,6 +376,7 @@ $('body').on('click','.horizontal',function(e){
 		legend = L.control({position: 'bottomright'});
 
 		legend.onAdd = function (map) {
+
 				var div = L.DomUtil.create('div', 'info legend'),
 						grades = [0, 5, 20, 40, 60],
 						labels = [];
