@@ -41,16 +41,16 @@ font-family: 'PT Sans';
 	background: rgba(255,255,255,0.75);
 	position: fixed;
 	right: 0px;
-	top: 65px;
+	top: 67px;
 	width: 25%;
 }
 #map{ 
-	top: 0;
 	height: 100%;
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	width: 100%; 
+	top: 0;
+	width: 75%; 
 }
 #shareBtn{
 	margin:0;
@@ -172,9 +172,10 @@ font-family: 'PT Sans';
 	top:400px !important;
 }
 .info.legend.leaflet-control{
+	color: #555;
 	position: relative;
 	right: -55px;
-	color: #555;
+	top: 25px;
 	width: 180px;
 }
 .leaflet-control-attribution.leaflet-control{position:relative;bottom:5px;right: -55px;}
@@ -263,7 +264,6 @@ font-family: 'PT Sans';
 	        transition: all .35s ease-in;
 }
 .titulo{
-	height: 100%;
 	padding: 0 1em;
 	text-align: center;
 }
