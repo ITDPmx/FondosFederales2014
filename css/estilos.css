@@ -25,12 +25,8 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 *{
-font-family: 'PT Sans';
+font-family: 'PT Sans', sans-serif;
 }
-.modal-body p{
-	font-size: 16px;
-}
-#bar-6 > span.bar-label{padding: 05}
 
 #accordion{
 	height:100%;
@@ -44,6 +40,12 @@ font-family: 'PT Sans';
 	top: 67px;
 	width: 25%;
 }
+#bar-6 > span.bar-label{
+	padding: 05;
+}
+#itdp-header ul li a{
+	font-weight: 200;
+}
 #map{ 
 	height: 100%;
 	margin: 0;
@@ -52,16 +54,20 @@ font-family: 'PT Sans';
 	top: 0;
 	width: 75%; 
 }
-#shareBtn{
-	margin:0;
-	padding:0;
-}
 #shareBtn iframe{
 	margin:10px 0;
 	padding:0;
 }
-#itdp-header ul li a{
-	font-weight: 200;
+.active{
+	-webkit-transition: all .5s ease-in;
+	   -moz-transition: all .5s ease-in;
+	    -ms-transition: all .5s ease-in;
+	     -o-transition: all .5s ease-in;
+	        transition: all .5s ease-in;
+}
+.fb-share-button{
+	margin:10px 0;
+	padding:0;
 }
 .itdp-riding:before {
 	content: "\e600";
@@ -97,14 +103,58 @@ font-family: 'PT Sans';
 	font-size: 30px;
 	color: #fff;
 }
-.active{
-	-webkit-transition: all .5s ease-in;
-	   -moz-transition: all .5s ease-in;
-	    -ms-transition: all .5s ease-in;
-	     -o-transition: all .5s ease-in;
-	        transition: all .5s ease-in;
+.ios-overlay-show{
+	top:400px !important;
 }
-
+.info.legend.leaflet-control{
+	color: #555;
+	position: relative;
+	right: -55px;
+	top: 25px;
+	width: 180px;
+}
+.info {
+	background: rgba(255,255,255,0.8);
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	float: left;
+	font: 18px Arial, Helvetica, sans-serif;
+	/*height: 20vh;*/
+	padding: 1em;
+	text-indent: 10px;
+}
+.info h4 {
+	color: #777;
+}
+.infrastructure1,.infrastructure2,.infrastructure3{
+	display: block;
+	font-size: 1.5em;
+	width: 100%;
+}
+.infrastructure1 span,.infrastructure2 span,.infrastructure3 span{
+	display: inline-table;
+	vertical-align: text-bottom;
+}
+.infrastructure1 p,.infrastructure2 p,.infrastructure3 p{
+	display: inline-table;
+	text-align: left;
+}
+.inversionTotal{
+	background-color: cadetblue;
+	bottom: -3px;
+	color: #fff;
+	display: inline-block;
+	font-size: 18px;
+	padding: 5px 0;
+	position: relative;
+	text-shadow:1px 1px 1px #000;
+	width: 100%;
+}
+.inversionTotal p{
+	display: block;
+	margin: 0;
+	text-align: center;
+}
 .leaflet-bottom.leaflet-left{
 	background-color: rgba(255,255,255,0.8);
 	bottom:5px;
@@ -114,15 +164,38 @@ font-family: 'PT Sans';
 	margin:0 auto;
 }
 .leaflet-bottom.leaflet-left .zmHover h4{
-	font-weight: 600;
 	color: #424242;
+	font-weight: 600;
 }
 .leaflet-bottom.leaflet-left .zmHover p{
 	font-size: 16px;
 	font-weight: 400;
 }
+.leaflet-control-attribution.leaflet-control{
+	position:relative;bottom:5px;right: -55px;
+}
+.leaflet-top.leaflet-left{
+	left:0 !important;
+	position: fixed !important;
+	top:64px !important;
+}
+.legend {
+	color: #555;
+	/*line-height: 18px;*/
+}
+.legend i {
+	float: left;
+	height: 18px;
+	margin-right: 8px;
+	/*opacity: 0.7;*/
+	width: 18px;
+}
+.modal-body p{
+	font-size: 16px;
+}
 .navbar-default{
-	background-color: #34495E;
+	/*background-color: #263238;*/
+	background-color: rgba(52,73,94,0.7);
 	border-radius:0;
 	border:none;
 }
@@ -142,7 +215,18 @@ font-family: 'PT Sans';
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus{
 	cursor: pointer;
-	color:#1abc9c;
+	color:#fff;
+	-webkit-transition: all .2s ease-in;
+	   -moz-transition: all .2s ease-in;
+	    -ms-transition: all .2s ease-in;
+	     -o-transition: all .2s ease-in;
+	        transition: all .2s ease-in;
+}
+.navbar-default .navbar-nav>li:hover,
+.navbar-default .navbar-nav>li:focus{
+	cursor: pointer;
+	background-color:#303030;
+
 	-webkit-transition: all .2s ease-in;
 	   -moz-transition: all .2s ease-in;
 	    -ms-transition: all .2s ease-in;
@@ -153,7 +237,7 @@ font-family: 'PT Sans';
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus{
 	/*background-color: #1ABC9C;*/
-	color: #222C3C;
+	color: #1de9b6;
 	cursor: pointer;
 	padding: 23px;
 	-webkit-transition: all .2s ease-in;
@@ -168,72 +252,6 @@ font-family: 'PT Sans';
 .nav>li>a:hover, .nav>li>a:focus{
 	text-shadow:1px 1px 1px #000;	
 }
-.ios-overlay-show{
-	top:400px !important;
-}
-.info.legend.leaflet-control{
-	color: #555;
-	position: relative;
-	right: -55px;
-	top: 25px;
-	width: 180px;
-}
-.leaflet-control-attribution.leaflet-control{position:relative;bottom:5px;right: -55px;}
-.info {
-	background: rgba(255,255,255,0.8);
-	border-radius: 5px;
-	box-shadow: 0 0 15px rgba(0,0,0,0.2);
-	float: left;
-	font: 18px Arial, Helvetica, sans-serif;
-	/*height: 20vh;*/
-	padding: 1em;
-	text-indent: 10px;
-}
-.infrastructure1,.infrastructure2,.infrastructure3{
-	display: block;
-	font-size: 1.5em;
-	width: 100%;
-}
-.infrastructure1 span,.infrastructure2 span,.infrastructure3 span{
-	display: inline-table;
-	vertical-align: text-bottom;
-}
-.infrastructure1 p,.infrastructure2 p,.infrastructure3 p{
-	display: inline-table;
-	text-align: left;
-	/* vertical-align: middle; */
-}
-.info h4 {
-	color: #777;
-}
-.inversionTotal{
-	background-color: cadetblue;
-	bottom: -3px;
-	color: #fff;
-	display: inline-block;
-	font-size: 18px;
-	padding: 5px 0;
-	position: relative;
-	text-shadow:1px 1px 1px #000;
-	width: 100%;
-}
-.inversionTotal p{
-	display: block;
-	text-align: center;
-	margin: 0;
-}
-.legend {
-	color: #555;
-	/*line-height: 18px;*/
-}
-.legend i {
-	float: left;
-	height: 18px;
-	margin-right: 8px;
-	/*opacity: 0.7;*/
-	width: 18px;
-}
-
 .icono-activo{
 	color: #333;
 }
@@ -262,25 +280,6 @@ font-family: 'PT Sans';
 	    -ms-transition: all .35s ease-in;
 	     -o-transition: all .35s ease-in;
 	        transition: all .35s ease-in;
-}
-.titulo{
-	padding: 0 1em;
-	text-align: center;
-}
-.titulo h3{
-	color: #424242;
-	font-size: 1.4em;
-	font-weight: 600;
-	text-align: center;
-	margin: 0.5em 0;
-}
-.titulo h4{
-	font-size: 1.2em;
-	font-weight: 200;
-	color: #1ABC9C;
-}
-.test li a{
-	font-size: 18px !important;
 }
 .row-social-icons{
 	bottom: 66px;
@@ -314,20 +313,28 @@ font-family: 'PT Sans';
 .social-icons div:nth-child(n+2) a i:hover:before{
 	color: #1ABC9C;
 }
-
+.titulo{
+	padding: 0 1em;
+	text-align: center;
+}
+.titulo h3{
+	color: #424242;
+	font-size: 1.4em;
+	font-weight: 600;
+	text-align: center;
+	margin: 0.5em 0;
+}
+.titulo h4{
+	font-size: 1.2em;
+	font-weight: 200;
+	color: #1ABC9C;
+}
+.test li a{
+	font-size: 18px !important;
+}
 .prueba h4 a{
 	color:#fff !important;
 }
-.fb-share-button{
-	margin:10px 0;
-	padding:0;
-}
-.leaflet-top.leaflet-left{
-	left:0 !important;
-	position: fixed !important;
-	top:64px !important;
-}
-
 @media only screen and (max-width: 640px){
 	.info{
 		height: 20vh;
