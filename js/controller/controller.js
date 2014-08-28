@@ -222,8 +222,8 @@ info.update = function (props) {
 					'<div id="bar-2" data-toggle="tooltip" data-placement="top" data-titulo="Peatones 2011" title="Infraestructura Peatonal 2011" data-tipo="InfPeaton2011"></div>'+
 					'<div id="bar-3" data-toggle="tooltip" data-placement="top" data-titulo="Espacio Público 2011" title="Espacio Público 2011" data-tipo="EPublico2011"></div>'+
 					'<div id="bar-4" data-toggle="tooltip" data-placement="top" data-titulo="Transporte Público 2011" title="Transporte Público 2011" data-tipo="TPublico2011"></div>'+
-					'<div id="bar-5" data-toggle="tooltip" data-placement="top" data-titulo="Automóviles 2011" title="Automóviles 2011" data-tipo="Auto2011"></div>'+
-					'<div id="bar-6" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentacion 2011" title="Pavimentacion 2011" data-tipo="Pavimentacion2011"></div>'+
+					'<div id="bar-5" data-toggle="tooltip" data-placement="top" data-titulo="Infraestructura Vial 2011" title="Infraestructura Vial 2011" data-tipo="Auto2011"></div>'+
+					'<div id="bar-6" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentación 2011" title="Pavimentación 2011" data-tipo="Pavimentacion2011"></div>'+
 					'<div class="inversionTotal">'+
 						'<p>Inversión Total en Movilidad 2011</p>'+
 						'<p id="inversion2011">'+props.properties.informacion.Total2011+'</p>'+
@@ -236,8 +236,8 @@ info.update = function (props) {
 					'<div id="bar-8" data-toggle="tooltip" data-placement="top"  data-titulo="Peatones 2012" title="Infraestructura Peatonal 2012" data-tipo="InfPeaton2012"></div>'+
 					'<div id="bar-9" data-toggle="tooltip" data-placement="top"  data-titulo="Espacio Público 2012" title="Espacio Público 2012" data-tipo="EPublico2012"></div>'+
 					'<div id="bar-10" data-toggle="tooltip" data-placement="top"  data-titulo="Transporte Público 2012" title="Transporte Público 2012" data-tipo="TPublico2012"></div>'+
-					'<div id="bar-11" data-toggle="tooltip" data-placement="top"  data-titulo="Automóviles 2012" title="Automóviles 2012" data-tipo="Auto2012"></div>'+
-					'<div id="bar-12" data-toggle="tooltip" data-placement="top"  data-titulo="Pavimentacion 2012" title="Pavimentacion 2012" data-tipo="Pavimentacion2012"></div>'+
+					'<div id="bar-11" data-toggle="tooltip" data-placement="top"  data-titulo="Infraestructura Vial 2012" title="Infraestructura Vial 2012" data-tipo="Auto2012"></div>'+
+					'<div id="bar-12" data-toggle="tooltip" data-placement="top"  data-titulo="Pavimentación 2012" title="Pavimentación 2012" data-tipo="Pavimentacion2012"></div>'+
 					'<div class="inversionTotal">'+
 						'<p>Inversión Total en Movilidad 2012</p>'+
 						'<p id="inversion2012">'+props.properties.informacion.Total2012+'</p>'+
@@ -250,8 +250,8 @@ info.update = function (props) {
 					'<div id="bar-14" data-toggle="tooltip" data-placement="top" data-titulo="Peatones 2013" title="Infraestructura Peatonal 2013" data-tipo="InfPeaton2013"></div>'+
 					'<div id="bar-15" data-toggle="tooltip" data-placement="top" data-titulo="Espacio Público 2013" title="Espacio Público 2013" data-tipo="EPublico2013"></div>'+
 					'<div id="bar-16" data-toggle="tooltip" data-placement="top" data-titulo="Transporte Público 2013" title="Transporte Público 2013" data-tipo="TPublico2013"></div>'+
-					'<div id="bar-17" data-toggle="tooltip" data-placement="top" data-titulo="Automóviles 2013" title="Automóviles 2013" data-tipo="Auto2013"></div>'+
-					'<div id="bar-18" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentacion 2013" title="Pavimentacion 2013" data-tipo="Pavimentacion2013"></div>'+
+					'<div id="bar-17" data-toggle="tooltip" data-placement="top" data-titulo="Infraestructura Vial 2013" title="Infraestructura Vial 2013" data-tipo="Auto2013"></div>'+
+					'<div id="bar-18" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentación 2013" title="Pavimentación 2013" data-tipo="Pavimentacion2013"></div>'+
 						'<div class="inversionTotal">'+
 						'<p>Inversión Total en Movilidad 2013</p>'+
 						'<p id="inversion2013">'+props.properties.informacion.Total2013+'</p>'+
