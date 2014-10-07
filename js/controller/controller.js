@@ -223,7 +223,7 @@ info.update = function (props) {
 					'<div id="bar-3" data-toggle="tooltip" data-placement="top" data-titulo="Espacio Público 2011" title="Espacio Público 2011" data-tipo="EPublico2011"></div>'+
 					'<div id="bar-4" data-toggle="tooltip" data-placement="top" data-titulo="Transporte Público 2011" title="Transporte Público 2011" data-tipo="TPublico2011"></div>'+
 					'<div id="bar-5" data-toggle="tooltip" data-placement="top" data-titulo="Infraestructura Vial 2011" title="Infraestructura Vial 2011" data-tipo="Auto2011"></div>'+
-					'<div id="bar-6" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentación 2011" title="Pavimentación 2011" data-tipo="Pavimentacion2011"></div>'+
+					'<div id="bar-6" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentación 2011" title="Pavimentación 2011" data-tipo="Pavimentación2011"></div>'+
 					'<div class="inversionTotal">'+
 						'<p>Inversión Total en Movilidad 2011</p>'+
 						'<p id="inversion2011">'+props.properties.informacion.Total2011+'</p>'+
@@ -237,7 +237,7 @@ info.update = function (props) {
 					'<div id="bar-9" data-toggle="tooltip" data-placement="top"  data-titulo="Espacio Público 2012" title="Espacio Público 2012" data-tipo="EPublico2012"></div>'+
 					'<div id="bar-10" data-toggle="tooltip" data-placement="top"  data-titulo="Transporte Público 2012" title="Transporte Público 2012" data-tipo="TPublico2012"></div>'+
 					'<div id="bar-11" data-toggle="tooltip" data-placement="top"  data-titulo="Infraestructura Vial 2012" title="Infraestructura Vial 2012" data-tipo="Auto2012"></div>'+
-					'<div id="bar-12" data-toggle="tooltip" data-placement="top"  data-titulo="Pavimentación 2012" title="Pavimentación 2012" data-tipo="Pavimentacion2012"></div>'+
+					'<div id="bar-12" data-toggle="tooltip" data-placement="top"  data-titulo="Pavimentación 2012" title="Pavimentación 2012" data-tipo="Pavimentación2012"></div>'+
 					'<div class="inversionTotal">'+
 						'<p>Inversión Total en Movilidad 2012</p>'+
 						'<p id="inversion2012">'+props.properties.informacion.Total2012+'</p>'+
@@ -251,15 +251,13 @@ info.update = function (props) {
 					'<div id="bar-15" data-toggle="tooltip" data-placement="top" data-titulo="Espacio Público 2013" title="Espacio Público 2013" data-tipo="EPublico2013"></div>'+
 					'<div id="bar-16" data-toggle="tooltip" data-placement="top" data-titulo="Transporte Público 2013" title="Transporte Público 2013" data-tipo="TPublico2013"></div>'+
 					'<div id="bar-17" data-toggle="tooltip" data-placement="top" data-titulo="Infraestructura Vial 2013" title="Infraestructura Vial 2013" data-tipo="Auto2013"></div>'+
-					'<div id="bar-18" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentación 2013" title="Pavimentación 2013" data-tipo="Pavimentacion2013"></div>'+
+					'<div id="bar-18" data-toggle="tooltip" data-placement="top" data-titulo="Pavimentación 2013" title="Pavimentación 2013" data-tipo="Pavimentación2013"></div>'+
 						'<div class="inversionTotal">'+
 						'<p>Inversión Total en Movilidad 2013</p>'+
 						'<p id="inversion2013">'+props.properties.informacion.Total2013+'</p>'+
 					'</div>'+
 				'</div>'+
 			'</div>'+
-
-
 		'</div>'
 	}
 };
@@ -318,23 +316,29 @@ $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 
 $('body').on('click','.horizontal',function(e){
 	e.preventDefault();
+	var zona = updateInfo;
 	var tituloLeyenda = this.dataset.titulo;
 	var datoTwitter = tituloLeyenda.split(' ');
 	var tipo = this.dataset.tipo;
+
 	var texto;
 	if (tituloLeyenda == "Transporte Público 2011" | tituloLeyenda == "Transporte Público 2012" | tituloLeyenda == "Transporte Público 2013") {
-		texto = 'Esto invirtió la Zona Metropolitana de '+post+ ' en '+datoTwitter[0]+" "+datoTwitter[1]+' en el año '+datoTwitter[2];
+
+		texto = 'Esto invirtió la Zona Metropolitana de '+zona.zm+ ' en '+datoTwitter[0]+" "+datoTwitter[1]+' en el año '+datoTwitter[2];
+	}
+	else if (tituloLeyenda == "Infraestructura Vial 2011" | tituloLeyenda == "Infraestructura Vial 2012" | tituloLeyenda == "Infraestructura Vial 2013") {
+		texto = 'Esto invirtió la Zona Metropolitana de '+zona.zm+ ' en '+datoTwitter[0]+" "+datoTwitter[1]+' en el año '+datoTwitter[2];
 	}
 	else{
-		texto = 'Esto invirtió la Zona Metropolitana de '+post+ ' en '+datoTwitter[0]+' en el año '+datoTwitter[1];
+		texto = 'Esto invirtió la Zona Metropolitana de '+zona.zm+ ' en '+datoTwitter[0]+' en el año '+datoTwitter[1];
 	}
 
 	$('#shareBtn iframe').remove();
 	var tweetBtn = $('<a>Tweet</a>')
 		.addClass('twitter-share-button')
 		.attr('href', 'http://twitter.com/share')
-		.attr('data-url', 'http://itdp.mx/fondos-federales-2014/')
-		.attr('data-counturl', 'http://itdp.mx/fondos-federales-2014/')
+		.attr('data-url', 'http://itdp.mx/invertirparamovernos/')
+		.attr('data-counturl', 'http://itdp.mx/invertirparamovernos/')
 		.attr('data-via', 'ITDPmx')
 		.attr('data-lang', 'es')
 		.attr('data-text', texto);
