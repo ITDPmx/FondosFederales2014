@@ -339,7 +339,6 @@ font-family: 'PT Sans', sans-serif;
 	.info{
 		height: 20vh;
 		width: 10vw;
-		/*z-index: 1000;*/
 	}
 	#map{ 
 		bottom: 0;
