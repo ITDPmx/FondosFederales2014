@@ -337,8 +337,8 @@ $('body').on('click','.horizontal',function(e){
 	var tweetBtn = $('<a>Tweet</a>')
 		.addClass('twitter-share-button')
 		.attr('href', 'http://twitter.com/share')
-		.attr('data-url', 'http://itdp.mx/fondos-federales-2014/')
-		.attr('data-counturl', 'http://itdp.mx/fondos-federales-2014/')
+		.attr('data-url', 'http://itdp.mx/invertirparamovernos/')
+		.attr('data-counturl', 'http://itdp.mx/invertirparamovernos/')
 		.attr('data-via', 'ITDPmx')
 		.attr('data-lang', 'es')
 		.attr('data-text', texto);
