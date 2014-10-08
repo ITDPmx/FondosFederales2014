@@ -11,14 +11,15 @@
 	<meta charset="utf-8">
   <meta title="ITDP México">
 	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="keywords" content="movilidad, itdp, invertir para movernos, fondos federales">
   <meta property="og:title" content="Invertir para movernos" />
   <meta property="og:site_name" content="ITDP México"/>
   <meta property="og:url" content="http://itdp.mx/invertirparamovernos/" />
-  <meta property="og:description" content="El objetivo de este sitio es contar con una herramienta que permita a los ciudadanos y ciudadanas conocer el tipo de proyectos de movilidad que se está llevando a cabo en sus ciudades. Al seleccionar una zona metropolitana puedes encontrar el monto y porcentaje de recursos que se están destinando para inversiones en los distintos modos de transporte. Con estos datos podas saber qué tanta prioridad se le está asignando a los peatones, ciclistas, usuarios del transporte público y automovilistas." />
+  <meta property="og:description" content="Plataforma de visualización de fondos y programas federales destinados a inversiones en movilidad urbana en las zonas metropolitanas de México" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="URL de la imagen que se muestra a la hora de compartir por twitter o facebook, mínimo 600 x 315 y máximo 1200x630 px " />
-  <meta property="fb:admins" content="ID" />
+  <meta property="og:image" content="http://itdp.mx/invertirparamovernos/share/invertirparamovernos.png" />
   <meta property="fb:app_id" content="461549437315664" />
+  <link href="http://itdp.mx/invertirparamovernos/share/invertirparamovernos.png" rel="image_src" />
 	<link rel="stylesheet" href="css/normalize.min.css">
 	<link rel="stylesheet" href="leaflet-0.7.2/leaflet.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -67,13 +68,13 @@
         <ul class="nav navbar-nav">
           <li><a data-toggle="tooltip" 
                  data-placement="bottom" 
-                 title="Descarga la metodología" 
+                 title="Descarga la metodología empleada para la elaboración del proyecto" 
                  href="Datos/Metodologia_InvertirParaMovernos.pdf"
                  target="_blank">METODOLOGÍA</a></li>
           <li><a data-toggle="tooltip" 
                  data-placement="bottom" 
                  title="Descarga el documento completo" 
-                 download href="#" 
+                 download  
                  target="_blank">DOCUMENTO COMPLETO</a></li>
           <li><a data-toggle="tooltip" 
                  data-placement="bottom" 
@@ -89,7 +90,7 @@
   			<li >
   				<a data-toggle="tooltip" data-placement="bottom" title="ITDP en Facebook" href="https://www.facebook.com/itdpmx" target="_blank" style="text-decoration:none;padding:16px 10px;"><i class="itdp-facebook"></i></a>
   			</li>
-  			<li data-toggle="tooltip" data-placement="bottom" title="Proyecto"><a  style="padding: 0;margin:14px 10px 18px;" class="navbar-brand" href="https://github.com/ITDPmx/FondosFederales2014" target="_blank"><img src="img/GitHub-Mark-Light-120px-plus.png" alt="GitHub logo" width="35"></a></li>
+  			<li data-toggle="tooltip" data-placement="bottom" title="Proyecto #InvertirParaMovernos"><a  style="padding: 0;margin:14px 10px 18px;" class="navbar-brand" href="https://github.com/ITDPmx/InvertirParaMovernos" target="_blank"><img src="img/GitHub-Mark-Light-120px-plus.png" alt="GitHub logo" width="35"></a></li>
   		</ul>
   		<div class="modal fade" id="acerca" tabindex="-1" role="dialog" aria-labelledby="acercaLabel" aria-hidden="true">
   		  <div class="modal-dialog modal-lg">
@@ -104,18 +105,22 @@
               <p>En las pestañas superiores del sitio podrás descargar la metodología empleada para la elaboración del proyecto, así como un documento que analiza los resultados, y la base de datos de los 13,900 proyectos utilizados para la elaboración de este estudio.</p>
    
               <p>Este trabajo es realizado por ITDP México gracias al apoyo de la Embajada Británica en México.</p>
-              <p>Diseño y programación:
-                 <ul>
-                    <li>Jonathan González</li>
-                    <li>Mario Flores</li>
-                 </ul>
-              </p>
-              <p>Coordinación:
-                 <ul>
-                    <li>Javier Garduño</li>
-                    <li>Salvador Medina</li>
-                 </ul>
-              </p>
+              <div style="float:left;width:50%">
+                <p><b>Diseño y programación:</b>
+                   <ul>
+                      <li><a href="https://twitter.com/" target="_blank" >Jonathan González</a></li>
+                      <li><a href="https://twitter.com/" target="_blank" >Mario Flores</a></li>
+                   </ul>
+                </p>                
+              </div>
+              <div style="float:right:width:50%;">
+                <p><b>Coordinación:</b>
+                   <ul>
+                      <li>Javier Garduño</li>
+                      <li>Salvador Medina</li>
+                   </ul>
+                </p>                
+              </div>
   		      </div>
   		    </div>
   		  </div>
@@ -139,16 +144,14 @@
 			<hr style="width:90%;">
 			<div class="social-icons">
 				<div class="col-sm-6 col-md-6 col-lg-6" id="shareBtn">
- 					<a href="https://twitter.com/share" id="share" class="twitter-share-button" data-lang="es" data-url="http://itdp.mx/fondos-federales-2014/" data-counturl="http://itdp.mx/fondos-federales-2014/" data-text="Plataforma de Visualización de Datos en Línea de Fondos Federales destinados a la Movilidad Urbana" data-via="ITDPmx">Tweet</a>
-				</div>
-				<div class="col-sm-6 col-md-6 col-lg-6" >
-          <div class="fb-share-button" data-href="http://itdp.mx/fondos-federales-2014/" data-type="button_count"></div>
+ 					<a href="https://twitter.com/share" id="share" class="twitter-share-button" data-lang="es" data-url="http://goo.gl/m0iOV6" data-counturl="http://itdp.mx/invertirparamovernos/" data-text="Plataforma de Visualización de Datos en Línea de Fondos Federales destinados a la Movilidad Urbana #InvertirParaMovernos" data-via="ITDPmx">Tweet</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
   <script>
+
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -157,8 +160,20 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
-	<script>
-	 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  <script>
+  	 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  </script>
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-55515712-1', 'auto');
+      ga('send', 'pageview');
+      ga('set', '&uid', '92149522');
+
+  </script>
   </script>
 	<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
